@@ -1,0 +1,361 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedidos - Jardín Botánico</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #4CAF50;
+            --accent-color: hsl(185, 27.70%, 90.80%);
+            --text-color: #333;
+            --light-color: #fff;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            line-height: 1.6;
+        }
+        
+        
+        .navbar {
+            background-color: var(--light-color);
+            padding: 1rem 5%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li a {
+            color: var(--text-color);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links li a:hover {
+            color: var(--primary-color);
+        }
+        
+        
+        .services {
+            padding: 5rem 5%;
+            text-align: center;
+            margin-top: 60px;
+            background-color: #fff;
+        }
+
+        .services h2 {
+            color: var(--primary-color);
+            margin-bottom: 3rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: var(--light-color);
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            position: relative;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+        }
+        
+        .buy-button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 10px;
+            transition: background-color 0.3s ease;
+        }
+        
+        .buy-button:hover {
+            background-color: #45a049;
+        }
+        
+        .purchase-modal {
+            display: none;
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1001;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .modal-content {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            max-width: 500px;
+            width: 80%;
+        }
+        
+        .close-button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        
+        .close-button:hover {
+            background-color: #45a049;
+        }
+        
+        .success-icon {
+            color: #4CAF50;
+            font-size: 50px;
+            margin-bottom: 15px;
+        }
+    
+        .content {
+            margin-top: 20px;
+            padding: 20px;
+        }
+        
+        h1 {
+            color: #4CAF50;
+        }
+        
+        form {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        
+        button:hover {
+            background-color: #45a049;
+        }
+        
+        .confirmation {
+            display: none;
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #e7f3fe;
+            border-left: 6px solid #2196F3;
+        }
+        
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+  
+    <nav class="navbar">
+        <div class="logo">Jardin Botanico Nacional</div>
+        <ul class="nav-links">
+            <li><a href="file:///D:/paginaporhtml/paginaprincipal.html">Inicio</a></li>
+            <li><a href="file:///D:/paginaporhtml/sobrenosotro.html">Sobre Nosotros</a></li>
+            <li><a href="file:///D:/paginaporhtml/paginacontacto.html">Contactos</a></li>
+            <li><a href="file:///D:/paginaporhtml/paginanoticia.html">Noticias</a></li>
+            <li><a href="file:///D:/paginaporhtml/paginapedido.html">Pedidos</a></li>
+        </ul>
+    </nav>
+
+   
+    <section class="services" id="servicios">
+        <h2>Plantas endémicas Disponibles De la República Dominicana:</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <img src="https://th.bing.com/th/id/R.7b58ad4e3e25e5bec769eb394efd1b22?rik=8QfNL3T8d9dpDA&pid=ImgRaw&r=0" alt="Plantas">
+                <h3>Flor de las Mirabal</h3>
+                <p>La flor de las Mirabal es una flor nativa y endémica de la República Dominicana. Esta flor única contribuye a la magnífica flora de la República Dominicana, uno de los principales destinos turísticos del Caribe. La flor es tan grande que tiene más de 30 cm de diámetro y se caracteriza porque sus flores tienen un color atractivo, y unos pétalos exteriores almendrados.</p>
+                <button class="buy-button" onclick="showPurchaseConfirmation('Flor de las Mirabal')">Comprar Ahora</button>
+            </div>
+            <div class="service-card">
+                <img src="https://th.bing.com/th/id/OIP.QUvfgrhff-pbiRfOOkp_yAHaE6?cb=iwp1&rs=1&pid=ImgDetMain" alt="Plantas">
+                <h3>Rosa de Bayahíbe, la flor nacional de República Dominicana</h3>
+                <p>Esta hermosa flor se encuentra en abundancia en la playa de Bayahíbe, y es el símbolo del amor y la amistad. La Rosa de Bayahíbe también es conocida como la "Flor del Caribe". Con su fragancia única y sus pétalos exuberantes, es fácil ver por qué esta flor ha cautivado a tantos. </p>
+                <button class="buy-button" onclick="showPurchaseConfirmation('Rosa de Bayahíbe')">Comprar Ahora</button>
+            </div>
+            <div class="service-card">
+                <img src="https://www.jardineriaon.com/wp-content/uploads/2018/07/clusia-rosea-flor.jpg">
+                <h3>Arbol Copey</h3>
+                <p>El Arbol Copey se encuentra en el territorio de la República Dominicana, y es una flor nativa del país. Es un árbol endémico, lo que significa que solo se encuentra en algunos lugares de la región. Está distribuido a lo largo de las costas de la República Dominicana, floreciendo desde abril hasta agosto. Esto convierte al Arbol Copey en un imprescindible para la flor domínica porque simboliza el carácter único y exótico del país. </p>
+                <button class="buy-button" onclick="showPurchaseConfirmation('Arbol Copey')">Comprar Ahora</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="services" id="servicios">
+        <h2>Arboles Disponibles Nativos de Republica Dominicana:</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <img src="https://th.bing.com/th/id/OIP.fD9x2CxqFMQIa5UXtX3AZgHaFj?cb=iwp1&rs=1&pid=ImgDetMain" alt="Plantas">
+                <h3>El Roble Santo (Tabebuia pallida)</h3>
+                <p>El Roble Santo es un árbol majestuoso que se encuentra en toda la República Dominicana. Su madera es muy valorada por su resistencia y durabilidad, y se utiliza comúnmente para hacer muebles y estructuras de construcción.</p>
+                <button class="buy-button" onclick="showPurchaseConfirmation('Roble Santo')">Comprar Ahora</button>
+            </div>
+            <div class="service-card">
+                <img src="https://th.bing.com/th/id/OIP.AZRxC2A12h4RSBBmMbgwswHaE8?cb=iwp1&rs=1&pid=ImgDetMain" alt="Plantas">
+                <h3>El Árbol de Tamarindo (Tamarindus indica)</h3>
+                <p>El árbol de tamarindo es un árbol frutal común en toda la República Dominicana. Sus frutos, que son pequeñas vainas marrones, se utilizan en una variedad de platos de la cocina local, desde bebidas hasta postres.</p>
+                <button class="buy-button" onclick="showPurchaseConfirmation('Árbol de Tamarindo')">Comprar Ahora</button>
+            </div>
+            <div class="service-card">
+                <img src="https://th.bing.com/th/id/OIP.El26ClUHoE9tA_LvCbc5egHaFj?cb=iwp1&rs=1&pid=ImgDetMain">
+                <h3>El Árbol de Ceiba (Ceiba pentandra)</h3>
+                <p>El árbol de ceiba es un árbol imponente que se encuentra en toda la República Dominicana. También conocido como «El Árbol Nacional», la ceiba es considerada sagrada por muchas culturas indígenas y se cree que tiene propiedades curativas y espirituales.</p>
+                <button class="buy-button" onclick="showPurchaseConfirmation('Árbol de Ceiba')">Comprar Ahora</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="services" id="servicios">
+        <h2>Flores exclusivas:</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <img src="https://api.florenzza.com/wp-content/uploads/2025/01/Arreglo-10-Passionate-Love-San-Valetin-2-scaled.jpg" alt="Plantas">
+                <h3>Passionate Love</h3>
+                <p>Un diseño vibrante de flores frescas que captura la esencia de la pasión y energía. Ideal para sorprender a una persona extrovertida este San Valentín.</p>
+                <button class="buy-button" onclick="showPurchaseConfirmation('Passionate Love')">Comprar Ahora</button>
+            </div>
+            <div class="service-card">
+                <img src="https://api.florenzza.com/wp-content/uploads/2025/01/Arreglo-07-Peach-Love-Arreglo-Floral-scaled.jpg" alt="Plantas">
+                <h3>Peach Love</h3>
+                <p>El Arreglo Peach Love es una obra floral que captura la frescura y energía de la primavera. Presentado en una elegante base de cristal rosado, este diseño destaca por su combinación armoniosa de hortensia esmerald green importada de Colombia.</p>
+                <button class="buy-button" onclick="showPurchaseConfirmation('Peach Love')">Comprar Ahora</button>
+            </div>
+            <div class="service-card">
+                <img src="https://cdn.florenzza.com/wp-content/uploads/2023/06/07145844/ramo_tradicional_1.webp">
+                <h3>Ramo Tradicional</h3>
+                <p> El Ramo Tradicional ofrece la elegancia clásica de las rosas rojas y el exótico ruscus israelí importado. Envueltos con malla simulando saco, es un regalo atemporal y encantador.El Ramo Tradicional ofrece la elegancia clásica de las rosas rojas y el exótico ruscus israelí importado. Envueltos con malla simulando saco, es un regalo atemporal y encantador.</p>
+                <button class="buy-button" onclick="showPurchaseConfirmation('Ramo Tradicional')">Comprar Ahora</button>
+            </div>
+        </div>
+    </section>
+
+    <div class="purchase-modal" id="purchaseModal">
+        <div class="modal-content">
+            <i class="fas fa-check-circle success-icon"></i>
+            <h2>¡Felicidades!</h2>
+            <p>Su compra de <span id="productName"></span> ha sido realizada con éxito.</p>
+            <p>Le notificaremos cuando su producto esté listo para entrega o envío.</p>
+            <button class="close-button" onclick="closePurchaseModal()">Cerrar</button>
+        </div>
+    </div>
+
+    <div class="content">
+        <h1>Pedidos</h1>
+        <p>Realiza tus pedidos de las mejores plantas. Completa el siguiente formulario y te responderemos lo antes posible.</p>
+
+        <form id="contactForm">
+            <label for="name">Nombre:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Correo Electrónico O Direccion:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Realize su pedido:</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+
+            <button type="submit">Enviar</button>
+        </form>
+
+        <div class="confirmation" id="confirmationMessage">
+            <p>¡Gracias por tu mensaje! Les dejaremos un mensaje cuando su plantas este lista.</p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("contactForm").onsubmit = function(event) {
+            event.preventDefault(); 
+            
+            var name = document.getElementById("name").value;
+            var email = document.getElementById("email").value;
+            var message = document.getElementById("message").value;
+            
+            document.getElementById("contactForm").reset();
+            document.getElementById("confirmationMessage").style.display = "block";
+        };
+        
+        function showPurchaseConfirmation(productName) {
+            document.getElementById("productName").textContent = productName;
+            document.getElementById("purchaseModal").style.display = "flex";
+        }
+        
+        function closePurchaseModal() {
+            document.getElementById("purchaseModal").style.display = "none";
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noticias del Jardín Botánico</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #4CAF50;
+            --accent-color: hsl(185, 27.70%, 90.80%);
+            --text-color: #333;
+            --light-color: #fff;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            line-height: 1.6;
+        }
+        
+        .navbar {
+            background-color: var(--light-color);
+            padding: 1rem 5%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li a {
+            color: var(--text-color);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links li a:hover {
+            color: var(--primary-color);
+        }
+        
+        .content {
+            margin-top: 80px;
+        }
+        
+        header {
+            background: #4CAF50;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+            margin-top: 60px; /* Espacio para la barra de navegación */
+        }
+        
+        nav.section-nav {
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        nav.section-nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #4CAF50;
+        }
+        
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        h2 {
+            color: #4CAF50;
+        }
+        
+        article {
+            margin-bottom: 30px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 20px;
+        }
+        
+        article img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin-bottom: 10px;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            background: #4CAF50;
+            color: white;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            margin-top: 20px;
+        }
+        
+      
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .container {
+                width: 95%;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <nav class="navbar">
+        <div class="logo">Jardin Botanico Nacional</div>
+        <ul class="nav-links">
+            <li><a href="file:///D:/paginaporhtml/paginaprincipal.html">Inicio</a></li>
+            <li><a href="file:///D:/paginaporhtml/sobrenosotro.html">Sobre Nosotros</a></li>
+            <li><a href="file:///D:/paginaporhtml/paginacontacto.html">Contactos</a></li>
+            <li><a href="file:///D:/paginaporhtml/paginanoticia.html">Noticias</a></li>
+            <li><a href="file:///D:/paginaporhtml/paginapedido.html">Pedidos</a></li>
+        </ul>
+    </nav>
+
+  
+    <div class="content">
+        <header>
+            <h1>Noticias del Jardín Botánico</h1>
+        </header>
+
+        <nav class="section-nav">
+            <a href="#noticias">Últimas Noticias</a>
+            <a href="#eventos">Eventos</a>
+        </nav>
+
+        <div class="container">
+            <section id="noticias">
+                <h2>Últimas Noticias</h2>
+                <article>
+                    <h3>JBN y RBG Kew realizaron conferencia sobre Redes de Colaboración y Bancos de Semillas para la Conservación de Plantas en Latinoamérica</h3>
+                    <p>El Jardín Botánico Nacional Dr. Rafael M. Moscoso (JBN), en colaboración con el Real Jardín Botánico de Kew (RBG Kew) del Reino Unido, realizaron la conferencia titulada "Redes de Colaboración y Bancos de Semillas como Herramientas Fundamentales para la Conservación de Plantas en Latinoamérica", con el objetivo de fortalecer
+                        alianzas estratégicas y compartir herramientas clave para la conservación de especies vegetales en la región..</p>
+                    <p><strong>Fecha:</strong> miercoles 07 de mayo 2025</p>
+
+                    <div><img src="https://www.jbn.gob.do/media/k2/items/cache/3cc3ea028ec2c5bc49d14fb381a9929f_L.jpg" style="width: 500px; height: auto;"></div>
+                    <a href="https://www.jbn.gob.do/media/k2/items/cache/3cc3ea028ec2c5bc49d14fb381a9929f_L.jpg">Ver mas</a>
+                </article>
+                
+                <article>
+                    <h3>Salvando los bosques nublados: ¿Cómo protegen los guardabosques estos ecosistemas amenazados?</h3>
+                    <p>En las cumbres neblinosas de la República Dominicana, donde el aire fresco se adhiere a los árboles y florece la biodiversidad, se encuentra uno de los ecosistemas más amenazados del Caribe: el Bosque Nuboso Tropical Montano. Estos bosques, ricos en especies endémicas, son vitales para la biodiversidad y la regulación del agua, pero están desapareciendo a un ritmo alarmante...</p>
+                    <p><strong>Fecha:</strong> Miercoles 02 de abril 2025</p>
+
+                    <div><img src="https://www.jbn.gob.do/media/k2/items/cache/e50216f3bf021078f78a0e2e997a0047_L.jpg" style="width: 500px; height: auto;"></div>
+                    <a href="https://www.jbn.gob.do/index.php/noticias/item/784-salvando-los-bosques-nublados-como-protegen-los-guardabosques-estos-ecosistemas-amenazados">Ver mas</a>
+                </article>
+                
+                <article>
+                    <h3>¡El Jardín Botánico Nacional está más CERCA de TI!</h3>
+                    <p>.Nuestro Departamento de Educación Ambiental dio formal inicio al programa "Un Día de Convivencia y Aprendizaje Inclusivo en el Jardín", con el objetivo de fomentar la valoración de la naturaleza entre los estudiantes de diversos centros educativos y motivarlos al cuidado y conservación de nuestros recursos naturales..</p>
+                    <p><strong>Fecha:</strong> Miercoles 26 de marzo 2025</p>
+
+                    <div><img src="https://www.jbn.gob.do/media/k2/items/cache/d1ed2bf3d11f7e7a6f189af32a153713_L.jpg" style="width: 500px; height: auto;"></div>
+                    <a href="https://www.jbn.gob.do/index.php/noticias/item/781-el-jardin-botanico-nacional-esta-mas-cerca-de-ti">Ver mas</a>
+                </article>
+                
+                <article>
+                    <h3>Instituciones se unen para conmemorar el Día Internacional de los Bosques y Día Mundial del Agua</h3>
+                    <p>En el marco del Día Internacional de los Bosques y del Mundial del Agua, el Departamento de Educación Ambiental en colaboración con del Instituto Superior de Formación Docente Salomé Ureña (ISFODOSU), organizó el taller titulado: ″Estrategias didácticas para la enseñanza-aprendizaje de la importancia de los bosques y el agua y su conservación″, con los objetivos de concienciar a la comunidad educativa sobre la importancia de los bosques, el agua y su conservación; fomentar el diálogo sobre los desafíos relacionados con el acceso al agua y la conservación de los bosques y promover prácticas sostenibles en el uso y gestión de los bosques y del agua...</p>
+                    <p><strong>Fecha:</strong> lunes 24 de marzo 2025</p>
+
+                    <div><img src="https://www.jbn.gob.do/media/k2/items/cache/30acc056eefaa17655fb482e0f42c3aa_L.jpg" style="width: 500px; height: auto;"></div>
+                    <a href="https://www.jbn.gob.do/index.php/noticias/item/780-instituciones-se-unen-para-conmemorar-el-dia-internacional-de-los-bosques-y-dia-mundial-del-agua">Ver mas</a>
+                </article>
+                
+                <article>
+                    <h3>Inauguran exhibición fotográfica del libro Pétalos y Colores en el Jardín Botánico Nacional</h3>
+                    <p>La firma INICIA, la Alcaldía del Distrito Nacional y el Jardín Botánico Nacional inauguraron recientemente, en la Plaza Central del Jardín, la exposición fotográfica del libro Pétalos y Colores: Diversidad Floral de La Española. Muestra que presenta una selección de fotografías de Pedro Borrell y Eladio Fernández, destacados fotógrafos y exploradores de la naturaleza en nuestro país...</p>
+                    <p><strong>Fecha:</strong> lunes 10 de marzo 2025</p>
+
+                    <div><img src="https://jbn.gob.do/media/k2/items/cache/1a76fc9d78dc2a3abb4431882931feda_XL.jpg" style="width: 500px; height: auto;"></div>
+                    <a href="https://jbn.gob.do/index.php/noticias/item/777-inauguran-exhibicion-fotografica-del-libro-petalos-y-colores-en-el-jardin-botanico-nacional">Ver mas</a>
+                </article>
+            </section>
+
+            <section id="eventos">
+                <h2>Eventos</h2>
+                <p>Consulta nuestra agenda para conocer los próximos eventos y actividades en el jardín botánico.</p>
+                <article>
+                    <h3>¿Esperabas el mes de marzo? ¡Ya tenemos fecha!</h3>
+                    <p>Para todos los amantes de las orquídeas y público en general, llega la Exposición de las Orquídeas 2025, con el tema "Orquídeas en el Bosque". 
+
+                        Desde el 13 al 16 de marzo te invitamos a vivir esta experiencia única junto a la Sociedad Dominicana de Orquideología...</p>
+                    <p><strong>Fecha:</strong> 13-16 de marzo 2025</p>
+
+                    <div><img src="https://jbn.gob.do/media/k2/items/cache/f9adbb275ff31ab154bc7deaace15fcf_L.jpg" style="width: 600px; height: auto;"></div>
+                    <a href="https://jbn.gob.do/index.php/noticias/item/770-esperabas-el-mes-de-marzo-ya-tenemos-fecha">Ver mas</a>
+                </article>
+                
+                <article>
+                    <h3>¡Ya tenemos fecha!</h3>
+                    <p>Queremos compartir esta gran noticia contigo, misma que nos tiene con mucha alegría y como eres parte de esta gran comunidad tienes que saber desde ya, que los días 17,18,19 y 20 del mes de octubre, tendremos nuestro tradicional Festival Nacional de Plantas y Flores....</p>
+                    <p><strong>Fecha:</strong> 17-20 de octubre 2024</p>
+
+                    <div><img src="https://jbn.gob.do/media/k2/items/cache/e1ef6b1511175103949b82a229ea0710_L.jpg" style="width: 600px; height: auto;"></div>
+                    <a href="https://jbn.gob.do/index.php/noticias/item/731-ya-tenemos-fecha">Ver mas</a>
+                </article>
+            </section>
+        </div>
+    </div>
+
+    <footer>
+        <p> Jardín Botánico.<br><br>Autor: Roberto Deschamps Y Daviel Medina</p>
+    </footer>
+</body>
+</html>
